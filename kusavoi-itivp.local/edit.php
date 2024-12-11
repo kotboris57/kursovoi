@@ -35,7 +35,6 @@ if ($id) {
     $is_editable = $shipment['status'] === 'в обработке';
 }
 
-// Получение списка типов доставки и быстрой доставки
 try {
     $stmt = $pdo->query("SELECT id, package_type FROM shipment_types");
     $package_types = $stmt->fetchAll(PDO::FETCH_ASSOC);

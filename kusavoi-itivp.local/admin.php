@@ -316,13 +316,13 @@ try {
             cursor: pointer;
         }
         .exit {
-            margin-left: auto; /* Сдвигает ссылку к правому краю */
-            padding: 10px 20px; /* Добавляет отступы для кнопки */
-            background-color: #007BFF; /* Цвет фона кнопки */
-            color: white; /* Цвет текста */
-            text-decoration: none; /* Убирает подчеркивание ссылки */
-            border-radius: 5px; /* Скругляет углы кнопки */
-            transition: background-color 0.3s; /* Плавный переход цвета фона */
+            margin-left: auto; 
+            padding: 10px 20px; 
+            background-color: #007BFF;
+            color: white; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s; 
             box-shadow: 0 0 20px #eee;
 
             background-image: linear-gradient(to right, #428ecf 0%, #0B63F6 51%, #428ecf 100%);
@@ -333,13 +333,13 @@ try {
         }
 
         .exit:hover {
-            background-color: #0056b3; /* Цвет фона при наведении */
+            background-color: #0056b3; 
         }
         .top {
             display: flex;
-            justify-content: space-between; /* Распределяет элементы по краям */
-            align-items: center; /* Центрирует элементы по вертикали */
-            width: 100%; /* Занимает всю ширину родителя */
+            justify-content: space-between;
+            align-items: center; 
+            width: 100%; 
         }
 
         .select{
@@ -502,7 +502,6 @@ try {
                     <tr class="tr">
                         <td class="td"><?= htmlspecialchars($user['username']) ?></td>
                         <td class="td">
-                <!-- Выпадающий список для роли -->
                             <select class="select" name="role_<?= $user['id'] ?>" form="form_<?= $user['id'] ?>">
                                 <option value="administrator" <?= $user['role'] === 'administrator' ? 'selected' : '' ?>>Администратор</option>
                                 <option value="employee" <?= $user['role'] === 'employee' ? 'selected' : '' ?>>Работник</option>
@@ -510,7 +509,6 @@ try {
                             </select>
                         </td>
                         <td class="td">
-                <!-- Выпадающий список для отдела -->
                             <select class="select" name="department_id_<?= $user['id'] ?>" form="form_<?= $user['id'] ?>">
                                 <option value="" <?= is_null($user['department_id']) ? 'selected' : '' ?>>Не назначен</option>
                                 <?php foreach ($departments as $department): ?>
@@ -521,7 +519,6 @@ try {
                             </select>
                         </td>
                         <td class="td">
-                <!-- Кнопка "Сохранить" для каждого пользователя -->
                             <form id="form_<?= $user['id'] ?>" method="post">
                                 <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
                                 <button class="delete" type="submit" name="save_changes">Сохранить</button>

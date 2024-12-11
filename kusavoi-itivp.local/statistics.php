@@ -146,7 +146,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'employee') {
         <button type="submit" class="buttonget">Показать статистику</button>
     </form>
 
-    <!-- Здесь будет отображаться график -->
     <?php include 'statisticsServer.php'; ?>
 </body>
 </html>

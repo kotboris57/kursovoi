@@ -16,14 +16,12 @@ try {
 $messages = [];
 $errors = [];
 
-// Получение ID отдела из запроса
 $department_id = $_GET['id'] ?? null;
 
 if (!$department_id) {
     die("Не указан ID отдела.");
 }
 
-// Получение данных отдела
 try {
     $stmt = $pdo->prepare("SELECT * FROM departments WHERE id = :id");
     $stmt->execute(['id' => $department_id]);
@@ -36,7 +34,6 @@ try {
     die("Ошибка при получении данных отдела: " . $e->getMessage());
 }
 
-// Обработка формы редактирования
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $city = trim($_POST['city']);
     $department_name = trim($_POST['department_name']);

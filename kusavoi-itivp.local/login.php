@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errors)) {
                         default:
                             $errors[] = "Роль пользователя не определена.";
                     }
-                    exit(); // Завершаем выполнение скрипта
+                    exit(); 
                 } else {
                     $errors[] = "Неверный пароль.";
                 }
@@ -62,9 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errors)) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -74,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errors)) {
 </head>
 <style>
         .errors ul {
-            list-style-type: none; /* Убираем точки перед элементами списка */
-            padding-left: 0; /* Убираем отступы */
+            list-style-type: none; 
+            padding-left: 0; 
         }
     </style>
 <body>
@@ -83,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errors)) {
     <div class="divinf">
         <h1>Авторизация</h1>
 
-        <!-- Вывод ошибок, если они есть -->
         <?php if (!empty($errors)): ?>
             <div class="errors">
                 <ul>
