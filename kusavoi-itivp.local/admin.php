@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_department'])) 
         try {
             $stmt = $pdo->prepare($sql);
             $stmt->execute(['id' => $department_id]);
-            $messages[] = "Пользователь успешно удален.";
+            $messages[] = "Отдел успешно удален.";
         } catch (PDOException $e) {
             $errors[] = "Ошибка при удалении пользователя: " . $e->getMessage();
         }
