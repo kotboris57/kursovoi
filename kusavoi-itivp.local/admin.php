@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_changes'])) {
         if (!is_null($new_department_id) && $new_role !== 'employee') {
             $errors[] = "Отдел можно назначить только пользователю с ролью 'employee'.";
         } else {
-            // Выполняем обновление в базе данных
             $sql = "UPDATE users SET role = :role, department_id = :department_id WHERE id = :id";
             try {
                 $stmt = $pdo->prepare($sql);
@@ -110,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_weights'])) {
 
     if (empty($errors)) {
         try {
-            // Обновляем каждый коэффициент
             foreach ($weights as $param => $weight) {
                 $sql = "UPDATE sorting_weights SET weight = :weight WHERE parameter = :parameter";
                 $stmt = $pdo->prepare($sql);
@@ -123,12 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_weights'])) {
     }
 }
 
-$weights_map = []; // Массив для хранения весов
+$weights_map = []; 
 
-// Выполняем запрос к базе данных для получения весов
 $sql = "SELECT * FROM sorting_weights";
 try {
-    // Выполнение запроса с использованием PDO
     $stmt = $pdo->query($sql);
     $weights_map = [];
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -141,7 +137,7 @@ try {
         if ($row['parameter'] == 'department_id') {
             $weights_map['department_id'] = $row['weight'];
         }
-       // Проверка существования ключей в массиве и передача значений в htmlspecialchars
+  
 
 $weightReceiving = isset($array['department_weight']) ? htmlspecialchars($array['department_weight']) : '';
 $weightType = isset($array['weight_type']) ? htmlspecialchars($array['weight_type']) : '';

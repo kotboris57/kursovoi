@@ -12,7 +12,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'employee') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Статистика по посылкам</title>
-    <!-- Подключение библиотеки Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body{
